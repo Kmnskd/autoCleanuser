@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Atlassian-Build-Date: 2021-11-23T16:39:00+0800
+Atlassian-Plugin-Key: com.atlassian.tutorial.autocleanuser
+Bnd-LastModified: 1637656741914
+Build-Jdk: 1.8.0_311
+Built-By: likunkun
+Bundle-Description: This is the com.atlassian.tutorial:autocleanuser plu
+ gin for Atlassian JIRA.
+Bundle-DocURL: http://www.example.com/
+Bundle-ManifestVersion: 2
+Bundle-Name: autocleanuser
+Bundle-SymbolicName: com.atlassian.tutorial.autocleanuser
+Bundle-Vendor: CONFLUENCE OS
+Bundle-Version: 1.0.0.9
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.atlassian.tutorial.autocleanuser.api;version="1.0.0"
+Import-Package: org.eclipse.gemini.blueprint.context;resolution:=optiona
+ l,org.eclipse.gemini.blueprint.service.exporter;resolution:=optional,or
+ g.eclipse.gemini.blueprint.service.exporter.support;resolution:=optiona
+ l,org.eclipse.gemini.blueprint.service.importer.support;resolution:=opt
+ ional,com.atlassian.annotations.nonnull,com.atlassian.plugin,com.atlass
+ ian.plugin.module,com.atlassian.plugin.osgi.external,com.atlassian.sal.
+ api,com.atlassian.tutorial.autocleanuser.api,javax.annotation,org.osgi.
+ framework,org.slf4j,org.springframework.beans,org.springframework.beans
+ .factory,org.springframework.beans.factory.config,org.springframework.c
+ glib.core,org.springframework.cglib.proxy,org.springframework.cglib.ref
+ lect,org.springframework.context,org.springframework.context.annotation
+ ,org.springframework.core.type
+Spring-Context: *
+Tool: Bnd-3.5.0.201709291849

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="com.atlassian.tutorial.autocleanuser-tests" name="autocleanuser" plugins-version="2"> 
+  <plugin-info> 
+    <description>This is the com.atlassian.tutorial:autocleanuser plugin for Atlassian JIRA.</description>  
+    <version>1.0.0.9</version>  
+    <vendor name="CONFLUENCE OS" url="http://www.example.com/"/>
+  </plugin-info>  
+  <!-- from our base plugin -->  
+  <component-import key="myComponent" interface="com.atlassian.tutorial.autocleanuser.api.MyPluginComponent"/>  
+  <!-- from the product container -->  
+  <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>  
+  <component key="my-component-wired-test" class="it.com.atlassian.tutorial.autocleanuser.MyComponentWiredTest" public="true">
+    <interface>it.com.atlassian.tutorial.autocleanuser.MyComponentWiredTest</interface>
+    <service-properties>
+      <entry key="inProductTest" value="true"/>
+    </service-properties>
+  </component>
+</atlassian-plugin>

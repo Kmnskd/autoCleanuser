@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jira用户激活</title>
+<link rel="icon" type="image/x-icon" href="./images/fav-jsw.png">
+<style>
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #efefef;
+}
+
+.container {
+	width: 400px;
+	height: 300px;
+	border: 1px solid lightgray;
+	background-color: white;
+	border-radius: 8px;
+	flex-direction: column;
+}
+.header{
+	line-height: 40px;
+    background-color: #0747a6;
+    color: white;
+    border-start-start-radius: 6px;
+    border-start-end-radius: 6px;
+    padding-left: 16px;
+}
+.content{
+    padding: 30px;
+}
+.item{
+	margin-bottom:25px;
+}
+.submit{
+	line-height:25px;
+	width:60px;
+	background-color: #0747a6;
+	color:white;
+	border:none;
+	cursor:pointer;
+}
+.errMsg{
+	color:red;
+	font-size:14px
+}
+</style>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	function formSubmit(e) {
+		$("#submit").prop('disabled', true);
+		$('#errMsg').text("")
+		$('#sucMsg').text("")
+		var frm = $('#userForm');
+		$.ajax({
+			type : frm.attr('method'),
+			url : 'jira/activate.do',
+			data : frm.serialize(),
+			success : function(data) {
+				console.log('Submission was successful.');
+				console.log(data);
+				$('#sucMsg').text("激活成功，请返回jira登录")
+			},
+			error : function(data) {
+				console.log('An error occurred.');
+				console.log(data);
+				$('#errMsg').text(data.responseJSON.message)
+			},
+			complete: function(data) {
+				$("#submit").prop('disabled', false);
+	        }
+		});
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">用户激活(v1.0.1)</div>
+		<div class="content">
+			<form id="userForm" method="post">
+				<div class="item">
+					<label for="name">姓名：</label><input type="text" name="name" />
+				</div>
+				<div class="item">
+					<label for="pwd">密码：</label><input type="password" name="pwd" />
+				</div>
+
+			</form>
+			<div>
+				<input class="submit" type="button" id="submit" onclick="return formSubmit();" value="激活"/>
+			</div>
+			<p id="errMsg" class="errMsg"></p>
+			<p id="sucMsg" class="sucMsg"></p>
+		</div>
+	</div>
+</body>
+</html>
